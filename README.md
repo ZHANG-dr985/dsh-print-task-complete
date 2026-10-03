@@ -8,19 +8,25 @@ DeepSeek Harness 插件包（bundle）：装上之后，agent 每完成一件被
 
 ## 安装
 
-在 DeepSeek Harness 里按包名安装：
+### 方式 A：直接从 GitHub 装（不需要 npm 账号）
 
-```
-dsh-print-task-complete
+```powershell
+plugin_manager install_bundle --target github:ZHANG-dr985/dsh-print-task-complete
 ```
 
-命令行等价写法：
+pnpm 从公开仓库拉取并解包（约 15 秒）。装完 `print-task-complete` 就出现在会话的技能目录里。更新同理，重跑这条命令即可。
+
+### 方式 B：按包名从 npm 装（包已发布到 npm 后）
 
 ```powershell
 plugin_manager install_bundle --target dsh-print-task-complete
 ```
 
-`print-task-complete` 这个 skill 就会出现在会话的技能目录里。
+也可以在 DSH 的插件管理界面里直接填包名 `dsh-print-task-complete`。
+
+### 方式 C：裸技能（零依赖，不经过插件加载器）
+
+把本仓库的 `skill/` 目录复制到 `~/.dsh/skills/print-task-complete/`，然后跑里面的 `install.ps1`。适合只想拿技能、不想动插件配置的情况。
 
 > **这个包做什么**：它是一个 cordis 插件，在 apply 时把 `print-task-complete` 注册进 Harness 的技能注册表（`ctx.skills.registerProvider`）。技能正文、脚本和彩蛋图随包发布在 `skill/` 下，通过 `resourceBase` 暴露给 agent。
 

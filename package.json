@@ -2,6 +2,15 @@
   "name": "dsh-print-task-complete",
   "version": "0.2.0",
   "description": "DeepSeek Harness bundle that adds a skill stamping a physical task-complete receipt at a random free spot on an A4 sheet (30 per sheet), with an occasional easter-egg picture. The printer is auto-detected.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZHANG-dr985/dsh-print-task-complete.git"
+  },
+  "homepage": "https://github.com/ZHANG-dr985/dsh-print-task-complete#readme",
+  "bugs": {
+    "url": "https://github.com/ZHANG-dr985/dsh-print-task-complete/issues"
+  },
+  "author": "ZHANG-dr985",
   "type": "module",
   "main": "./lib/index.js",
   "exports": {
