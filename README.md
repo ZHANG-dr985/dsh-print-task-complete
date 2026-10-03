@@ -14,7 +14,14 @@ DeepSeek Harness 插件包（bundle）：装上之后，agent 每完成一件被
 plugin_manager install_bundle --target github:ZHANG-dr985/dsh-print-task-complete
 ```
 
-pnpm 从公开仓库拉取并解包（约 15 秒）。装完 `print-task-complete` 就出现在会话的技能目录里。更新同理，重跑这条命令即可。
+pnpm 从公开仓库拉取并解包（约 15 秒）。装完 `print-task-complete` 就出现在会话的技能目录里。
+
+**更新**：先卸载再安装。只重跑安装命令不够 —— DSH 的插件管理器对同一个 git spec 重复安装会报 `ambiguous-install`，文件虽然更新了，但锁文件不会同步，之后某次 `pnpm install` 可能把包回滚到旧提交（实测遇到过）：
+
+```powershell
+plugin_manager remove_bundle   --target dsh-print-task-complete
+plugin_manager install_bundle  --target github:ZHANG-dr985/dsh-print-task-complete
+```
 
 ### 方式 B：按包名从 npm 装（包已发布到 npm 后）
 
