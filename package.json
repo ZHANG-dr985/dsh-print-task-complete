@@ -1,0 +1,51 @@
+{
+  "name": "dsh-print-task-complete",
+  "version": "0.2.0",
+  "description": "DeepSeek Harness bundle that adds a skill stamping a physical task-complete receipt at a random free spot on an A4 sheet (30 per sheet), with an occasional easter-egg picture. The printer is auto-detected.",
+  "type": "module",
+  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "skill",
+    "scripts",
+    "cordis.patch.yml",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "verify": "node scripts/verify.mjs",
+    "prepublishOnly": "npm run verify"
+  },
+  "license": "MIT",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "dsh-bundle",
+    "deepseek-harness",
+    "cordis",
+    "skill",
+    "printer",
+    "task-complete",
+    "receipt"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dsh": {
+    "engines": {
+      "dsh": ">=0.1.5-rc.3"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+# Bundle patch for dsh-print-task-complete.
+#
+# This is what makes the package a PROFILE LAYER rather than an inert
+# dependency: the row below mounts the plugin, and the plugin registers the
+# `print-task-complete` skill into the Harness skill registry at apply time.
+- insert:
+    - id: skill-print-task-complete
+      name: dsh-print-task-complete
